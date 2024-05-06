@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">Mobpro1_assessment2</string>
+    <string name="app_name">Daftar Mobil</string>
+    <string name="list_kosong">Belum ada data mobil</string>
+    <string name="x_diklik">%1$s diklik!</string>
+    <string name="tambah_mobil">Tambah mobil</string>
+    <string name="merek">Merek</string>
+    <string name="tipe">Tipe</string>
+    <string name="spesifikasi">Spesifikasi</string>
+    <string name="kembali">Kembali</string>
+    <string name="simpan">Simpan</string>
+    <string name="edit_mobil">Ubah mobil</string>
+    <string name="invalid">Merek, Tipe dan Spesifikasi harus di isi!</string>
+    <string name="lainnya">Opsi lainnya</string>
+    <string name="hapus">Hapus data mobil</string>
+    <string name="pesan_hapus">Hapus data mobil ini?</string>
+    <string name="tombol_hapus">Hapus</string>
+    <string name="tombol_batal">Batal</string>
+    <string name="list">Tampilan list</string>
+    <string name="grid">Tampilan grid</string>
 </resources>
