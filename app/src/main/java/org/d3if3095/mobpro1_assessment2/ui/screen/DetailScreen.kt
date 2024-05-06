@@ -207,8 +207,8 @@ fun FormMobil(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     RadioButton(
-                        selected = tipe == option,
-                        onClick = { onTipeChange(option) },
+                        selected = spesifikasi == option,
+                        onClick = { onSpesifikasiChange(option) },
                         colors = RadioButtonDefaults.colors(selectedColor = MaterialTheme.colorScheme.primary)
                     )
                     Text(
