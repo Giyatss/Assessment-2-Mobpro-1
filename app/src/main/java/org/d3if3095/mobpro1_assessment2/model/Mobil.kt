@@ -9,5 +9,6 @@ data class Mobil(
     val id: Long = 0L,
     val merek: String,
     val tipe: String,
+    val harga: String,
     val spesifikasi: String
 )

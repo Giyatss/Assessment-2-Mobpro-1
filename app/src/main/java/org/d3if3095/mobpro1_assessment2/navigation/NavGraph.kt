@@ -7,7 +7,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import org.d3if3095.mobpro1_assessment2.navigation.Screen
 import org.d3if3095.mobpro1_assessment2.ui.screen.DetailScreen
 import org.d3if3095.mobpro1_assessment2.ui.screen.KEY_ID_MOBIL
 import org.d3if3095.mobpro1_assessment2.ui.screen.MainScreen

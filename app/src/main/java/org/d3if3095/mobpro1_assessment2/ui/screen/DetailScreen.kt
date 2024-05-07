@@ -42,6 +42,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -64,6 +65,7 @@ fun DetailScreen(navController: NavHostController, id: Long? = null) {
 
     var merek by remember { mutableStateOf("") }
     var tipe by remember { mutableStateOf("") }
+    var harga by remember { mutableStateOf("") }
     var spesifikasi by remember { mutableStateOf("") }
     val selectedOptionsIndex = remember { mutableIntStateOf(-1) }
 
@@ -76,6 +78,7 @@ fun DetailScreen(navController: NavHostController, id: Long? = null) {
             merek = data.merek
             tipe = data.tipe
             spesifikasi = data.spesifikasi
+            harga = data.harga
             selectedOptionsIndex.intValue = getSelectedOptionIndex(spesifikasi)
         }
     }
@@ -104,14 +107,14 @@ fun DetailScreen(navController: NavHostController, id: Long? = null) {
                 ),
                 actions = {
                     IconButton(onClick = {
-                        if (merek == "" || tipe == "" || spesifikasi == "") {
+                        if (merek == "" || tipe == "" || spesifikasi == "" || harga == "") {
                             Toast.makeText(context, R.string.invalid, Toast.LENGTH_LONG).show()
                             return@IconButton
                         }
                         if (id == null) {
-                            viewModel.insert(merek, tipe, spesifikasi)
+                            viewModel.insert(merek, tipe, spesifikasi, harga)
                         } else {
-                            viewModel.update(id, merek, tipe, spesifikasi)
+                            viewModel.update(id, merek, tipe, spesifikasi, harga)
                         }
                         navController.popBackStack()}) {
                         Icon(
@@ -140,6 +143,8 @@ fun DetailScreen(navController: NavHostController, id: Long? = null) {
             tipe = tipe,
             onTipeChange = {tipe = it},
             spesifikasi = spesifikasi,
+            harga = harga,
+            onHargaChange = {harga = it},
             onSpesifikasiChange = { spesifikasi = it },
             modifier = Modifier.padding(padding)
         )
@@ -160,7 +165,9 @@ fun FormMobil(
     tipe: String, onTipeChange: (String) -> Unit,
     modifier: Modifier,
     spesifikasi: String,
-    onSpesifikasiChange: (String) -> Unit
+    onSpesifikasiChange: (String) -> Unit,
+    harga: String, onHargaChange: (String) -> Unit
+
 ) {
     Column(
         modifier = modifier
@@ -194,7 +201,7 @@ fun FormMobil(
             modifier = Modifier
                 .fillMaxWidth()
                 .border(1.dp, Color.Gray, RoundedCornerShape(4.dp)),
-            verticalArrangement = Arrangement.spacedBy(1.dp)
+            verticalArrangement = Arrangement.spacedBy(5.dp)
         ) {
             val options = listOf(
                 "Manual",
@@ -218,6 +225,17 @@ fun FormMobil(
                 }
             }
         }
+        OutlinedTextField(
+            value = harga,
+            onValueChange = { onHargaChange(it) },
+            label = { Text(text = stringResource(id = R.string.harga)) },
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Number,
+                imeAction = ImeAction.Done
+            ),
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
 
