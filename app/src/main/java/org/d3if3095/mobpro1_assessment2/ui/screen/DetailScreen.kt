@@ -229,6 +229,7 @@ fun FormMobil(
             value = harga,
             onValueChange = { onHargaChange(it) },
             label = { Text(text = stringResource(id = R.string.harga)) },
+            trailingIcon = { Text(text = "(rupiah)  ")},
             singleLine = true,
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Number,
