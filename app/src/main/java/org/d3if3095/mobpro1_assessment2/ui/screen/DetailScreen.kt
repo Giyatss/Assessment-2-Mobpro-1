@@ -167,7 +167,6 @@ fun FormMobil(
     spesifikasi: String,
     onSpesifikasiChange: (String) -> Unit,
     harga: String, onHargaChange: (String) -> Unit
-
 ) {
     Column(
         modifier = modifier
@@ -197,21 +196,19 @@ fun FormMobil(
             ),
             modifier = Modifier.fillMaxWidth()
         )
-        Column(
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .border(1.dp, Color.Gray, RoundedCornerShape(4.dp)),
-            verticalArrangement = Arrangement.spacedBy(5.dp)
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             val options = listOf(
                 "Manual",
                 "Matic"
-
             )
             options.forEach { option ->
                 Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.fillMaxWidth()
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
                     RadioButton(
                         selected = spesifikasi == option,
@@ -220,7 +217,7 @@ fun FormMobil(
                     )
                     Text(
                         text = option,
-                        modifier = Modifier.padding(start = 1.dp),
+                        modifier = Modifier.padding(start = 8.dp),
                     )
                 }
             }
@@ -239,6 +236,7 @@ fun FormMobil(
         )
     }
 }
+
 
 @Composable
 fun DeleteAction(delete: () -> Unit) {

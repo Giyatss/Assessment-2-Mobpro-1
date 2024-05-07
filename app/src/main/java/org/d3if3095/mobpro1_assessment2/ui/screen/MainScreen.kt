@@ -183,11 +183,12 @@ fun ListItem(mobil: Mobil, onClick: () -> Unit) {
             overflow = TextOverflow.Ellipsis,
             fontWeight = FontWeight.Bold
         )
-        Text(text = mobil.spesifikasi)
+        Text(text ="(${mobil.spesifikasi})")
         Text(
-            text = mobil.harga,
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis
+            text = "Rp. ${mobil.harga}",
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            fontWeight = FontWeight.Bold
         )
     }
 }
@@ -220,11 +221,12 @@ fun GridItem(mobil: Mobil, onClick: () -> Unit) {
                 overflow = TextOverflow.Ellipsis,
                 fontWeight = FontWeight.Bold
             )
-            Text(text = mobil.spesifikasi)
+            Text(text ="(${mobil.spesifikasi})")
             Text(
-                text = mobil.harga,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis
+                text = "Rp. ${mobil.harga}",
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                fontWeight = FontWeight.Bold
             )
         }
     }
