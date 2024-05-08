@@ -16,7 +16,7 @@ interface MobilDao {
     @Update
     suspend fun update(mobil: Mobil)
 
-    @Query("SELECT * FROM mobil ORDER BY spesifikasi ASC")
+    @Query("SELECT * FROM mobil ORDER BY merek ASC")
     fun getMobil(): Flow<List<Mobil>>
 
     @Query("SELECT * FROM mobil WHERE id = :id")
